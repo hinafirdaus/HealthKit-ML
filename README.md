@@ -1,6 +1,6 @@
 ![alt text](https://github.com/cyrilzakka/Deep-HealthKit/blob/master/Artboard.png)
-# HP
-Deep Learning in Health Care: An Experiment
+# Deep HealthKit
+Bridging the Gap Between AI and Health Care
 
 # Introduction
 
