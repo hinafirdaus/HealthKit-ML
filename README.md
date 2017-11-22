@@ -1,4 +1,4 @@
-![alt text](https://github.com/cyrilzakka/HealthKit-ML/blob/master/Artboard.png)
+![alt text](https://github.com/cyrilzakka/HealthKit-ML/blob/master/banner.png)
 # HealthKit ML
 Bridging the Gap Between AI and Healthcare.
 
