@@ -3,7 +3,7 @@
 Bridging the Gap Between AI and Healthcare.
 
 # Introduction
-Deep HealthKit aims to bring artifical intelligence to healthcare, one neural network at a time. With the recent advances in machine learning, or more specifically the successes garnered by deep learning algorithms in tasks such as computer vision and nature language processing (NLP), revolutioninzing medicine seemed like the natural way forward.
+Deep HealthKit aims to bring artifical intelligence to healthcare, one neural network at a time. With the recent advances in machine learning, or more specifically the successes garnered by deep learning algorithms in tasks such as computer vision and nature language processing (NLP), translating those achievements to the medical field seemed only natural.
 
 # Requirements
 - Keras (TensorFlow backend)
