@@ -13,7 +13,7 @@ HealthKit ML aims to bring artifical intelligence to healthcare, one neural netw
 
 # Table of Contents
 - [Computer Vision](#computer-vision)
-  1. [TB-Net: Tuberculosis Detection from Chest X-rays](tb-net-tuberculosis-detection-in-chest-x-rays)
+  1. [TB-Net: Tuberculosis Detection from Chest X-rays](#tb-net-tuberculosis-detection-in-chest-x-rays)
 - [Natural Language Processing](#natural-language-processing)
 - [Model Integration](#model-integration)
   1. [iOS and Core ML](#ios-and-core-ml)
