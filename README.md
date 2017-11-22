@@ -1,4 +1,4 @@
-![alt text](https://github.com/cyrilzakka/Deep-HealthKit/blob/master/Artboard.png)
+![alt text](https://github.com/cyrilzakka/Deep-HealthKit/blob/master/banner.png)
 # Deep HealthKit
 Bridging the Gap Between AI and Healthcare.
 
