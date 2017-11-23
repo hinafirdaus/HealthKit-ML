@@ -19,7 +19,7 @@ HealthKit ML aims to bring artifical intelligence to healthcare, one neural netw
 # Computer Vision
 ### TB-Net: Tuberculosis Detection in Chest X-Rays 
 #### Background
-Tuberculosis (TB) is an infectious disease that mainly affects the lungs. It is caused by the _Mycobacterium tuberculosis_  bacterium (MTB), and spreads through airborne droplets from an infected person. While most infections do not have symptoms (latent tuberculosis), about 10% of cases progress to active disease which, if left untreated, kills about half of those infected. Symptoms of active TB include chronic coughing, bloody sputum, fever, night sweats, and weight loss.
+Tuberculosis (TB) is an infectious disease that mainly affects the lungs. It is caused by the _Mycobacterium tuberculosis_  bacterium (MTB), and spreads through airborne droplets from an infected person. While most infections do not have symptoms (latent tuberculosis), about 10% of cases progress to active TB which, if left untreated, kills about half of those infected. Symptoms include chronic coughing, bloody sputum, fever, night sweats, and weight loss.
 
 Despite the discovery of antibiotic drugs in the 1940s, TB has seen a resurgence due to increasing rates of multiple drug-resistant tuberculosis (MDR-TB) and HIV/AIDS. In fact, one-third of the world's population is thought to be infected with TB, with around 1.37 million reported deaths per year.
 
@@ -27,10 +27,16 @@ Despite the discovery of antibiotic drugs in the 1940s, TB has seen a resurgence
 With the drought in radiologists currently being experienced by developing countries in the world, diagnosing various diseases for proper treatment has become quite the challenge. Can neural networks be leveraged to help narrow the gap between the supply and demand of radiologists in the diagnosis of TB?
 
 ### Data
-Datasets containing chest X-rays of TB-infected patients and otherwise healthy individuals were downloaded from the [National Institute of Health (NIH)](https://ceb.nlm.nih.gov/repositories/tuberculosis-chest-x-ray-image-data-sets/) and split into 8:1:1 for training, validation and test sets respectively - images from both datasets were rescaled `1./255` and distributed equally among the training, validation and test sets.
+Datasets containing chest X-rays of TB-infected patients and otherwise healthy individuals were downloaded from the [National Institute of Health (NIH)](https://ceb.nlm.nih.gov/repositories/tuberculosis-chest-x-ray-image-data-sets/) and split into 8:1:1 for training, validation and test sets respectively - images from both datasets were rescaled `1./255` and resized to `512*512` and distributed equally among the training, validation and test sets.
+
 Data augmentation was used limiting the `zoom`, `shearing`, `height/width shift` ranges to `0.2`, `rotation angle` to `40º` and `horizontal flipping` set to `True`.
 
 ### Results and Limitations
+| Metric        | Value         |
+|:--------------|--------------:|
+| Accuracy      |    80.69%     |
+| Precision     |      ___      |
+| Recall        |      ___      |
 
 # Natural Language Processing
 # Model Integration
