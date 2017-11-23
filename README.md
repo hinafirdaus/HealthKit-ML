@@ -19,9 +19,9 @@ HealthKit ML aims to bring artifical intelligence to healthcare, one neural netw
 # Computer Vision
 ### TB-Net: Tuberculosis Detection in Chest X-Rays 
 #### Background
-Tuberculosis (TB) is an infectious disease that mainly affects the lungs. It is caused by the _Mycobacterium tuberculosis_  bacterium (MTB), and spreads through airborne droplets from an infected person. While most infections do not have symptoms (latent tuberculosis), about 10% of cases progress to active disease which if left untreated, kills about half of those infected. Symptoms of active TB include chronic coughing with blood-containing sputum, fever, night sweats, and weight loss.
+Tuberculosis (TB) is an infectious disease that mainly affects the lungs. It is caused by the _Mycobacterium tuberculosis_  bacterium (MTB), and spreads through airborne droplets from an infected person. While most infections do not have symptoms (latent tuberculosis), about 10% of cases progress to active disease which, if left untreated, kills about half of those infected. Symptoms of active TB include chronic coughing, bloody sputum, fever, night sweats, and weight loss.
 
-Despite the discovery of certain antibiotic drugs in the 1940s, TB has seen a resurgence due to increasing rates of multiple drug-resistant tuberculosis (MDR-TB). In fact, one-third of the world's population is thought to be infected with TB, with new infections occurring in about 1% of the population each year, and around 1.37 million deaths per year (95% in developing countries).
+Despite the discovery of antibiotic drugs in the 1940s, TB has seen a resurgence due to increasing rates of multiple drug-resistant tuberculosis (MDR-TB). In fact, one-third of the world's population is thought to be infected with TB, with new infections occurring in 1% of the population, and around 1.37 million deaths per year (95% in developing countries).
 
 ### Task
 
