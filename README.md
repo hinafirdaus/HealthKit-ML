@@ -24,7 +24,7 @@ Tuberculosis (TB) is an infectious disease that mainly affects the lungs. It is 
 Despite the discovery of antibiotic drugs in the 1940s, TB has seen a resurgence due to increasing rates of multiple drug-resistant tuberculosis (MDR-TB) and HIV/AIDS. In fact, one-third of the world's population is thought to be infected with TB, with around 1.37 million reported deaths per year.
 
 ### Purpose
-With the current drought in radiologists currently being experienced by developing countries, diagnosing various diseases for proper treatment has become quite the challenge. Can neural networks be leveraged to help narrow the gap between the supply and demand of radiologists in the diagnosis of TB?
+With the drought in radiologists currently being experienced by developing countries in the world, diagnosing various diseases for proper treatment has become quite the challenge. Can neural networks be leveraged to help narrow the gap between the supply and demand of radiologists in the diagnosis of TB?
 
 ### Data
 Datasets containing chest X-rays of TB-infected patients and otherwise healthy individuals were downloaded from the [National Institute of Health (NIH)](https://ceb.nlm.nih.gov/repositories/tuberculosis-chest-x-ray-image-data-sets/) and split into 8:1:1 for training, validation and test sets respectively - images from both datasets were rescaled `1./255` and distributed equally among the training, validation and test sets.
