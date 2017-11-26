@@ -26,17 +26,18 @@ Despite the discovery of antibiotic drugs in the 1940s, TB has seen a resurgence
 ### Purpose
 With the drought in radiologists currently being experienced by developing countries in the world, diagnosing various diseases for proper treatment has become quite the challenge. Can neural networks be leveraged to help narrow the gap between the supply and demand of radiologists in the diagnosis of TB?
 
-### Data
-Datasets containing chest X-rays of TB-infected patients and otherwise healthy individuals were downloaded from the [National Institute of Health (NIH)](https://ceb.nlm.nih.gov/repositories/tuberculosis-chest-x-ray-image-data-sets/) and split into 8:1:1 for training, validation and test sets respectively - images from both datasets were rescaled `1./255` and resized to `512*512` and distributed equally among the training, validation and test sets.
+### Data & Training
+Datasets containing chest X-rays of TB-infected patients and otherwise healthy individuals were downloaded from the [National Institute of Health (NIH)](https://ceb.nlm.nih.gov/repositories/tuberculosis-chest-x-ray-image-data-sets/) and split into 8:1:1 for training, validation and test sets respectively - images from both datasets were rescaled `1./255` and resized to `224*224` and distributed equally among the training, validation and test sets.
 
-Data augmentation was used limiting the `zoom`, `shearing`, `height/width shift` ranges to `0.2`, `rotation angle` to `40º` and `horizontal flipping` set to `True`.
+Data augmentation was used limiting the `zoom`, `shearing`, `height/width shift` ranges to `0.2`, `rotation angle` to `40°` and `horizontal flipping` set to `True`.
+
+Training took place at around `268s/epoch` for `30 epochs` on a single Tesla K80 GPU using a 15-layer convolutional neural network with `dropout` at  `(0.5)` to minimize overfitting.
 
 ### Results and Limitations
 | Metric        | Value         |
 |:--------------|--------------:|
-| Accuracy      |    80.69%     |
-| Precision     |      ___      |
-| Recall        |      ___      |
+| Test Accuracy |    86.7%      |
+| ROC AUC Score |     0.89      |
 
 # Natural Language Processing
 # Model Integration
