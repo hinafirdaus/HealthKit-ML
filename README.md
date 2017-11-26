@@ -31,7 +31,7 @@ Datasets containing chest X-rays of TB-infected patients and otherwise healthy i
 
 Data augmentation was used limiting the `zoom`, `shearing`, `height/width shift` ranges to `0.2`, `rotation angle` to `40°` and `horizontal flipping` set to `True`.
 
-Training took place at around `268s/epoch` for `30 epochs` on a single Tesla K80 GPU using a 15-layer convolutional neural network with `dropout` at  `(0.5)` to minimize overfitting.
+Training took place at around `268s/epoch` for `30 epochs` on a single Tesla K80 GPU using a 15-layer convolutional neural network with `dropout` at  `0.5` to minimize overfitting.
 
 ### Results and Limitations
 | Metric        | Value         |
