@@ -2,13 +2,16 @@
 import os, shutil
 import matplotlib.pyplot as plt
 
+from keras.applications import VGG16
+from keras.applications import imagenet_utils
+
 from keras import layers
 from keras import models
 from keras import optimizers
 
 from keras.preprocessing.image import ImageDataGenerator
 
-image_size = (512, 512)
+image_size = (224,224)
 original_dataset_dir = 'data'
 base_dir = 'filtered_data'
 os.mkdir(base_dir)
@@ -128,29 +131,50 @@ def trie_images(directory):
 		dst = os.path.join(test_tb_dir, fname)
 		shutil.copyfile(src, dst)
 
-	train_datagen = ImageDataGenerator(rescale=1./255, zoom_range=0.2, shear_range=0.2, width_shift_range=0.2, height_shift_range=0.2, rotation_range=40, horizontal_flip=True)
-	test_datagen = ImageDataGenerator(rescale=1./255)
+	train_datagen = ImageDataGenerator(rescale=1./255, zoom_range=0.2, shear_range=0.2, width_shift_range=0.2, height_shift_range=0.2, rotation_range=40, preprocessing_function=imagenet_utils.preprocess_input, horizontal_flip=True)
+	test_datagen = ImageDataGenerator(rescale=1./255, preprocessing_function=imagenet_utils.preprocess_input)
 
-	train_generator = train_datagen.flow_from_directory(train_dir, target_size=image_size, batch_size=14, class_mode='binary')
-	validation_generator = test_datagen.flow_from_directory(validation_dir, target_size=image_size, batch_size=14, class_mode='binary')
+	train_generator = train_datagen.flow_from_directory(train_dir, target_size=image_size, batch_size=16, class_mode='binary')
+	validation_generator = test_datagen.flow_from_directory(validation_dir, target_size=image_size, batch_size=16, class_mode='binary')
+	test_generator = test_datagen.flow_from_directory(test_dir, target_size=image_size, batch_size=16, class_mode='binary')
 
-	return (train_generator, validation_generator)
+	return (train_generator, validation_generator, test_generator)
 
 def get_model():
+
 	model = models.Sequential()
-	model.add(layers.Conv2D(32, (3,3), activation='relu', input_shape=(image_size[0], image_size[1], 3)))
+	model.add(layers.Conv2D(64, (3,3), activation='relu', padding='same', input_shape=(image_size[0], image_size[1], 3)))
+	model.add(layers.Conv2D(64, (3,3), activation='relu', padding='same'))
 	model.add(layers.MaxPool2D((2,2)))
 
-	model.add(layers.Conv2D(64, (3,3), activation='relu'))
+	model.add(layers.Dropout(0.5))
+	
+	model.add(layers.Conv2D(128, (3,3), activation='relu', padding='same'))
+	model.add(layers.Conv2D(128, (3,3), activation='relu', padding='same'))
 	model.add(layers.MaxPool2D((2,2)))
 
-	model.add(layers.Conv2D(128, (3,3), activation='relu'))
+	model.add(layers.Dropout(0.5))
+
+	model.add(layers.Conv2D(256, (3,3), activation='relu', padding='same'))
+	model.add(layers.Conv2D(256, (3,3), activation='relu', padding='same'))
+	model.add(layers.Conv2D(256, (3,3), activation='relu', padding='same'))
 	model.add(layers.MaxPool2D((2,2)))
-	model.add(layers.Conv2D(128, (3,3), activation='relu'))
+
+	model.add(layers.Dropout(0.5))
+
+	model.add(layers.Conv2D(512, (3,3), activation='relu', padding='same'))
+	model.add(layers.Conv2D(512, (3,3), activation='relu', padding='same'))
+	model.add(layers.Conv2D(512, (3,3), activation='relu', padding='same'))
 	model.add(layers.MaxPool2D((2,2)))
+
+	model.add(layers.Conv2D(512, (3,3), activation='relu', padding='same'))
+	model.add(layers.Conv2D(512, (3,3), activation='relu', padding='same'))
+	model.add(layers.Conv2D(512, (3,3), activation='relu', padding='same'))
+	model.add(layers.MaxPool2D((2,2)))
+
+	model.add(layers.Dropout(0.5))
 	
 	model.add(layers.Flatten())
-	model.add(layers.Dropout(0.5))
 	model.add(layers.Dense(512, activation='relu'))
 	model.add(layers.Dense(1, activation='sigmoid'))
 	model.summary()
@@ -161,8 +185,12 @@ def build_model():
 	model = get_model()
 	params = trie_images(original_dataset_dir)
 
-	model.compile(loss='binary_crossentropy', optimizer=optimizers.Adam(lr=0.0001, beta_1=0.9, beta_2=0.999, epsilon=1e-08, decay=1e-5), metrics=['accuracy'])
+	model.compile(loss='binary_crossentropy', optimizer=optimizers.Adam(lr=3e-4, beta_1=0.9, beta_2=0.999, epsilon=1e-08, decay=0), metrics=['accuracy'])
 	history = model.fit_generator(params[0], steps_per_epoch=100, epochs=30, validation_data=params[1], validation_steps=50)
+
+	test_loss, test_acc = model.evaluate_generator(params[2], steps=50) 
+	print('Test accuracy is: ', test_acc, 'with a test loss of: ', test_loss)
+
 	model.save('tb_net.h5')
 
 def plot_accuracy_loss(history):
