@@ -14,6 +14,7 @@ HealthKit ML aims to bring artifical intelligence to healthcare, one neural netw
 # Table of Contents
 - [Computer Vision](#computer-vision)
   1. [TB-Net: Tuberculosis Detection from Chest X-Rays](#tb-net-tuberculosis-detection-in-chest-x-rays)
+  2. [Brain Tumor Segmentation with Capsule Layers](#brain-tumor-segmentation-with-capsule-layers)
 - [Natural Language Processing](#natural-language-processing)
 - [Sequence Models](#sequence-models)
   1. [Cardya Heart Rate Monitor: A Case Study](#cardya-heart-rate-monitor-a-case-study)
@@ -52,6 +53,8 @@ Despite obtaining relatively high metrics on this task, the original dataset sho
 2. University of Maryland Medical Center. Tuberculosis. http://www.umm.edu/health/medical/altmed/condition/tuberculosis. Accessed November 26, 2017.
 3. World Health Organization. Trade, foreign policy, diplomacy and health: Tuberculosis Control http://www.who.int/trade/distance_learning/gpgh/gpgh3/en/index4.html. Accessed November 26, 2017.
 4. Radiological Society of North America. Developing Countries in Dire Need of Radiology Training. http://www.rsna.org/NewsDetail.aspx?id=12532. Accessed November 26, 2017.
+
+### Brain Tumor Segmentation with Capsule Layers
 
 # Natural Language Processing
 Coming soon!
